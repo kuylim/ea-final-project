@@ -1,1 +1,29 @@
+server:
+  port: 8084
 
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: guest
+    username: guest
+  application:
+    name: movie-service
+  datasource:
+    password: 12345
+    url: jdbc:postgresql://localhost:5001/db_user
+    username: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+keycloak:
+  auth-server-url: http://localhost:5555/auth/
+  realm: miu
+  public-client: false
+  resource: product-service
+  principal-attribute: preferred_username
+  autodetect-bearer-only: true
