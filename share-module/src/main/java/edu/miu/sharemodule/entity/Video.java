@@ -15,7 +15,7 @@ import javax.persistence.MappedSuperclass;
 public class Video {
 
     private Integer releaseYear;
-    private Double rating;
+    private Integer rating;
     private String genre;
     private String director;
     private String actor;

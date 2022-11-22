@@ -8,4 +8,11 @@ import lombok.Data;
  */
 @Data
 public class MovieFilter {
+
+    private Integer releaseYear;
+    private Integer rating;
+    private String genre;
+    private String director;
+    private String actor;
+    private Double duration;
 }

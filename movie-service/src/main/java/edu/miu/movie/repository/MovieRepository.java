@@ -9,5 +9,5 @@ import org.springframework.stereotype.Repository;
  * Date: 11/21/2022
  */
 @Repository
-public interface MovieRepository extends JpaRepository<Movie, Long> {
+public interface MovieRepository extends JpaRepository<Movie, Long>, CustomMovieRepository {
 }
