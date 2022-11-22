@@ -1,10 +1,8 @@
 package edu.miu.userservice.dto;
 
+import edu.miu.sharemodule.enumerate.RoleType;
 import edu.miu.sharemodule.enumerate.UserType;
 import lombok.Data;
-
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 
 /**
  * Author: Kuylim TITH
@@ -16,6 +14,9 @@ public class UserDTO {
 
     private String lastname;
 
-    @Enumerated(EnumType.STRING)
+    private String password;
+
+    private RoleType roleType;
+
     private UserType userType;
 }
