@@ -15,8 +15,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * Author: Kuylim TITH
- * Date: 11/21/2022
+ * Author: Abubakr Abdullaev
+ * Date: 11/22/2022
  */
 @Configuration
 public class RabbitConfiguration {
