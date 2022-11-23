@@ -7,6 +7,7 @@ import edu.miu.userservice.service.KeycloakService;
 import edu.miu.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
+import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -21,13 +22,16 @@ public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
     private final KeycloakService keycloakService;
+    private final KafkaTemplate<String, Object> kafkaTemplate;
 
     @Override
     public Boolean createUser(UserDTO dto) {
         User user = new User();
         BeanUtils.copyProperties(dto, user, "id");
         if (keycloakService.createUser(dto)) {
-            userRepository.save(user);
+            user = userRepository.save(user);
+            kafkaTemplate.send("movie-create-user", user);
+            kafkaTemplate.send("tv-series-create-user", user);
         }
         return true;
     }
