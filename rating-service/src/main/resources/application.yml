@@ -1,1 +1,26 @@
+spring:
+#  sql:
+#    init:
+#      mode: always
+  rabbitmq:
+    host: beaver.rmq.cloudamqp.com
+    port: 5672
+    password: KGp7Kb5Zqfk68K0Ph5xieDalZb850eM5
+    username: htbiycdq
+    virtual-host: htbiycdq
+  application:
+    name: movie-service
+  datasource:
+    password: 12345
+    url: jdbc:postgresql://64.227.76.247:5001/db_rating
+    username: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    defer-datasource-initialization: true
+server:
+  port: 8085
 
