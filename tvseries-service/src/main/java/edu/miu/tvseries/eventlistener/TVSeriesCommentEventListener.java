@@ -1,9 +1,7 @@
-package edu.miu.movie.eventlistener;
+package edu.miu.tvseries.eventlistener;
 
-import edu.miu.movie.dto.CommentMovieDTO;
-import edu.miu.movie.entity.Comment;
-import edu.miu.movie.service.CommentService;
-import lombok.RequiredArgsConstructor;
+
+import edu.miu.tvseries.controller.dto.CommentTVSeriesDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.Exchange;
 import org.springframework.amqp.rabbit.annotation.Queue;
@@ -17,17 +15,13 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-@RequiredArgsConstructor
-public class MovieCommentEventListener {
+public class TVSeriesCommentEventListener {
 
-    private final CommentService commentService;
     @RabbitListener(bindings = @QueueBinding(
-            value = @Queue(value = "comment-movie-queue", durable = "true"),
+            value = @Queue(value = "tvseries-movie-queue", durable = "true"),
             exchange = @Exchange(name = "comment-exchange", type = "fanout")
     ), containerFactory = "listenerContainerFactory")
-    public void onCommentMovie(CommentMovieDTO dto) {
-
-        commentService.addComment(dto);
+    public void onCommentMovie(CommentTVSeriesDTO dto) {
 
         log.info("Received data: {}", dto);
     }

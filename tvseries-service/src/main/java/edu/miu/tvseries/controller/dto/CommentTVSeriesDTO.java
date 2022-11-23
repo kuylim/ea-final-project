@@ -1,13 +1,9 @@
-package edu.miu.movie.dto;
+package edu.miu.tvseries.controller.dto;
 
 import lombok.Data;
 
-/**
- * Author: Kuylim TITH
- * Date: 11/21/2022
- */
 @Data
-public class CommentMovieDTO {
+public class CommentTVSeriesDTO {
 
     private Long id;
     private String comment;

@@ -1,21 +1,16 @@
-package edu.miu.sharemodule.entity;
+package edu.miu.movie.dto;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.MappedSuperclass;
-
-/**
- * Author: Kuylim TITH
- * Date: 11/21/2022
- */
+@Data
 @Setter
 @Getter
-@MappedSuperclass
-public class Video {
+public class MovieDTO {
 
     private Integer releaseYear;
-    private Integer rating =0;
+    private Integer rating;
     private String genre;
     private String director;
     private String actor;
