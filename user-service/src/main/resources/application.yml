@@ -1,1 +1,43 @@
+server:
+  port: 8084
 
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: guest
+    username: guest
+  application:
+    name: movie-service
+  datasource:
+    password: 12345
+    url: jdbc:postgresql://localhost:5001/db_user
+    username: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
+keycloak:
+  auth-server-url: http://localhost:5555/auth/
+  realm: movie-rating
+  public-client: false
+  resource: app-service
+  principal-attribute: preferred_username
+  autodetect-bearer-only: true
+
+cli:
+    username: admin
+    password: Pa55w0rd
+    client-id: admin-cli
+    grant-type: password
+    token-url: http://localhost:5555/auth/realms/master/protocol/openid-connect/token
+    create-user-url: http://localhost:5555/auth/admin/realms/movie-rating/users
+
+app:
+  realm: movie-rating
+  client-id: app-service

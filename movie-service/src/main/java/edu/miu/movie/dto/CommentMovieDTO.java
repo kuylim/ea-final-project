@@ -11,7 +11,7 @@ public class CommentMovieDTO {
 
     private Long id;
     private String comment;
-    private Long movieId;
+    private Long movieOrTVSeriesId;
     private Long userId;
 
     @Override
@@ -19,7 +19,7 @@ public class CommentMovieDTO {
         return "CommentMovieDTO{" +
                 "id=" + id +
                 ", comment='" + comment + '\'' +
-                ", movieId=" + movieId +
+                ", movieId=" + movieOrTVSeriesId +
                 ", userId=" + userId +
                 '}';
     }

@@ -1,5 +1,6 @@
 package edu.miu.tvseries.entity;
 
+import lombok.*;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
@@ -11,6 +12,10 @@ import javax.persistence.ManyToOne;
  * Date: 11/21/2022
  */
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
 public class Comment {
 
     @Id
@@ -19,9 +24,7 @@ public class Comment {
     @Type(type = "text")
     private String comment;
 
-    @ManyToOne
-    private TVSeries tvSeries;
+    private Long movieOrTVSeriesId;
 
-    @ManyToOne
-    private User user;
+    private Long userId;
 }

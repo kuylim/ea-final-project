@@ -1,4 +1,4 @@
-package edu.miu.comment.repository;
+package edu.miu.comment.service.repository;
 
 import edu.miu.comment.entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
