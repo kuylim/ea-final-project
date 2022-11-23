@@ -13,5 +13,5 @@ public interface KeycloakService {
 
     Map<String, Object> getAccessToken(LoginDTO dto);
 
-    Map<String, Object> createUser(UserDTO dto);
+    Boolean createUser(UserDTO dto);
 }

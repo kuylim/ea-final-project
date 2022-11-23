@@ -1,6 +1,5 @@
 package edu.miu.userservice.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 /**
@@ -9,9 +8,6 @@ import lombok.Data;
  */
 @Data
 public class LoginDTO {
-
     private String username;
     private String password;
-    @JsonIgnore
-    private String clientId;
 }

@@ -1,10 +1,14 @@
 package edu.miu.userservice.controller;
 
+import edu.miu.userservice.dto.LoginDTO;
 import edu.miu.userservice.service.KeycloakService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * Author: Kuylim TITH
@@ -15,11 +19,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class AuthenticationController {
 
-    private final KeycloakService service;
+    private final KeycloakService keycloakService;
 
-    @PostMapping("/token")
-    public Boolean login() {
-        service.createUser(null);
-        return false;
+    @PostMapping("/login")
+    public Map<String, Object> login(@RequestBody LoginDTO dto) {
+        return keycloakService.getAccessToken(dto);
     }
 }

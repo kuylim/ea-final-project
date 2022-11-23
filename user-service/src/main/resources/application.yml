@@ -28,7 +28,6 @@ keycloak:
   principal-attribute: preferred_username
   autodetect-bearer-only: true
 
-
 cli:
     username: admin
     password: Pa55w0rd
@@ -36,3 +35,7 @@ cli:
     grant-type: password
     token-url: http://localhost:5555/auth/realms/master/protocol/openid-connect/token
     create-user-url: http://localhost:5555/auth/admin/realms/movie-rating/users
+
+app:
+  realm: movie-rating
+  client-id: app-service

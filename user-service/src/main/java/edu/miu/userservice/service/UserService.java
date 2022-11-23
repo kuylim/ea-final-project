@@ -8,7 +8,7 @@ import edu.miu.userservice.dto.UserDTO;
  */
 public interface UserService {
 
-    UserDTO createUser(UserDTO dto);
+    Boolean createUser(UserDTO dto);
 
     UserDTO updateUser(Long id, UserDTO dto);
 

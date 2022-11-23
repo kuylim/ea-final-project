@@ -1,7 +1,6 @@
 package edu.miu.userservice.dto;
 
-import edu.miu.sharemodule.enumerate.RoleType;
-import edu.miu.sharemodule.enumerate.UserType;
+import edu.miu.sharemodule.enumerate.Role;
 import lombok.Data;
 
 /**
@@ -10,13 +9,17 @@ import lombok.Data;
  */
 @Data
 public class UserDTO {
-    private String firstname;
 
-    private String lastname;
+    private String username;
+
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
 
     private String password;
 
-    private RoleType roleType;
+    private Role role;
 
-    private UserType userType;
 }

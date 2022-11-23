@@ -1,7 +1,6 @@
 package edu.miu.userservice.entity;
 
-import edu.miu.sharemodule.enumerate.RoleType;
-import edu.miu.sharemodule.enumerate.UserType;
+import edu.miu.sharemodule.enumerate.Role;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,13 +20,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String firstname;
+    private String username;
 
-    private String lastname;
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
 
     @Enumerated(EnumType.STRING)
-    private RoleType roleType;
-
-    @Enumerated(EnumType.STRING)
-    private UserType userType;
+    private Role role;
 }
