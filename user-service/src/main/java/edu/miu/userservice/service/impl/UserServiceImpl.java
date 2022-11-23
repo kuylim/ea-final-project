@@ -40,7 +40,6 @@ public class UserServiceImpl implements UserService {
             BeanUtils.copyProperties(dto, user, "id");
             userRepository.save(user);
         }
-        // todo publish to other service
         return dto;
     }
 
@@ -50,5 +49,11 @@ public class UserServiceImpl implements UserService {
         Optional<User> optional = userRepository.findById(id);
         optional.ifPresent(user -> BeanUtils.copyProperties(user, dto));
         return dto;
+    }
+
+    @Override
+    public Boolean deleteUserById(Long id) {
+        userRepository.deleteById(id);
+        return true;
     }
 }

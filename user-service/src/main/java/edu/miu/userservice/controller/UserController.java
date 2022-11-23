@@ -25,4 +25,14 @@ public class UserController {
     public UserDTO updateExistingUser(@RequestBody UserDTO dto, @PathVariable Long id) {
         return userService.updateUser(id, dto);
     }
+
+    @DeleteMapping("/{id}")
+    public Boolean deleteUserById(@PathVariable Long id) {
+        return userService.deleteUserById(id);
+    }
+
+    @GetMapping("/{id}")
+    public UserDTO findUserById(@PathVariable Long id) {
+        return userService.findUserById(id);
+    }
 }
