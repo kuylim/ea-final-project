@@ -31,6 +31,14 @@ spring:
     hibernate:
       ddl-auto: update
 
+management:
+  endpoint:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include:*
+
 eureka:
   client:
     service-url:
