@@ -8,6 +8,7 @@ import edu.miu.movie.service.MovieService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -40,7 +41,8 @@ public class MovieController {
     }
 
     @GetMapping("/{id}")
-    public Movie getOneMovie(@PathVariable Long id){
+    public Movie getOneMovie(@PathVariable Long id, HttpServletRequest request){
+        System.out.println("======> : " + request.getHeader("Authorization"));
         return movieService.getOneMovie(id);
     }
 

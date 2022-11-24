@@ -1,6 +1,7 @@
 package edu.miu.userservice.controller;
 
 import edu.miu.userservice.dto.LoginDTO;
+import edu.miu.userservice.dto.UserDTO;
 import edu.miu.userservice.service.KeycloakService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,5 +25,10 @@ public class AuthenticationController {
     @PostMapping("/login")
     public Map<String, Object> login(@RequestBody LoginDTO dto) {
         return keycloakService.getAccessToken(dto);
+    }
+
+    @PostMapping("/register")
+    public Boolean register(@RequestBody UserDTO dto) {
+        return keycloakService.createUser(dto);
     }
 }

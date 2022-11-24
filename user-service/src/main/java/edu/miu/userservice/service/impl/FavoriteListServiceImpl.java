@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
 
 /**
@@ -26,6 +27,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class FavoriteListServiceImpl implements FavoriteListService {
 
+    private final HttpServletRequest request;
     private final MovieSnapshotRepository movieSnapshotRepository;
     private final TVSeriesSnapshotRepository tvSeriesSnapshotRepository;
     private final FavoriteListRepository favoriteListRepository;
@@ -47,7 +49,8 @@ public class FavoriteListServiceImpl implements FavoriteListService {
         if (optional.isPresent()) {
             if (VideoType.MOVIE.equals(dto.getVideoType())) {
                 MovieSnapshot movieSnapshot = new MovieSnapshot();
-                BeanUtils.copyProperties(movieServiceClient.getByMovieById(dto.getMovieOrTvSeriesId()), movieSnapshot);
+                BeanUtils.copyProperties(movieServiceClient.getByMovieById(request.getHeader("Authorization"),
+                        dto.getMovieOrTvSeriesId()), movieSnapshot);
                 movieSnapshot.setFavoriteList(optional.get());
                 movieSnapshotRepository.save(movieSnapshot);
             } else {
