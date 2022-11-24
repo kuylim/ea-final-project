@@ -7,6 +7,9 @@ import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import org.keycloak.adapters.springboot.KeycloakSpringBootConfigResolver;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.vault.authentication.TokenAuthentication;
+import org.springframework.vault.client.VaultEndpoint;
+import org.springframework.vault.core.VaultTemplate;
 import org.springframework.web.client.RestTemplate;
 
 /**
@@ -33,5 +36,14 @@ public class BeanConfiguration {
                 .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
                 .registerModule(new JavaTimeModule()).disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
     }
+
+//    @Container
+//    public static VaultContainer vaultContainer = new VaultContainer();
+//
+//    @Bean
+//    public VaultTemplate vaultTemplate(VaultEndpoint vaultEndpoint) {
+//        vaultEndpoint.setScheme("http"); ////////////// this
+//        return new VaultTemplate(vaultEndpoint, new TokenAuthentication("00000000-0000-0000-0000-000000000000"));
+//    }
 
 }

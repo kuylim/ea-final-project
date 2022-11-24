@@ -2,6 +2,15 @@ server:
   port: 8084
 
 spring:
+  cloud:
+    vault:
+      host: localhost
+      port: 8200
+      scheme: http
+      token: 188d954a-1331-b830-1d78-7e32b403a6c5
+      kv:
+        enabled: true
+        application-name: user-service
   kafka:
     bootstrap-servers: localhost:9092
   rabbitmq:
@@ -12,9 +21,9 @@ spring:
   application:
     name: user-service
   datasource:
-    password: 12345
+    password: ${db_password}
     url: jdbc:postgresql://localhost:5001/db_user
-    username: postgres
+    username: ${db_username}
   jpa:
     properties:
       hibernate:
