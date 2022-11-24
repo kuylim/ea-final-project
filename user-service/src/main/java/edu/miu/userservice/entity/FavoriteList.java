@@ -1,9 +1,11 @@
 package edu.miu.userservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Author: Kuylim TITH
@@ -22,5 +24,12 @@ public class FavoriteList {
 
     private String name;
 
+    @JsonManagedReference
+    @OneToMany(mappedBy = "favoriteList", cascade = CascadeType.ALL)
+    List<MovieSnapshot> movieSnapshots;
+
+    @JsonManagedReference
+    @OneToMany(mappedBy = "favoriteList", cascade = CascadeType.ALL)
+    List<TVSeriesSnapshot> tvSeriesSnapshots;
 
 }
