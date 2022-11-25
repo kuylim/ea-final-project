@@ -13,11 +13,11 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class BeanConfiguration {
-    @Bean
-    public ObjectMapper createObjectMapper() {
-        return new ObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
-                .configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
-                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
-                .registerModule(new JavaTimeModule()).disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
-    }
+//    @Bean
+//    public ObjectMapper createObjectMapper() {
+//        return new ObjectMapper().disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
+//                .configure(DeserializationFeature.FAIL_ON_MISSING_CREATOR_PROPERTIES, true)
+//                .configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
+//                .registerModule(new JavaTimeModule()).disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+//    }
 }

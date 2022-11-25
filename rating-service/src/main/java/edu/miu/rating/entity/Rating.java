@@ -1,6 +1,7 @@
 package edu.miu.rating.entity;
 
 import edu.miu.sharemodule.enumerate.VideoType;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,9 +10,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Setter
-@Getter
+
 @Entity
+@Data
 public class Rating {
 
     @Id
@@ -21,7 +22,7 @@ public class Rating {
     //@Type(type = "text")
     private Integer rating;
 
-    private String videoType;
+    private VideoType videoType;
 
     private Long movieOrTVSeriesId;
 

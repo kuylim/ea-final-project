@@ -1,18 +1,24 @@
 package edu.miu.tvseries.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import edu.miu.sharemodule.enumerate.VideoType;
+import lombok.Data;
+
+import javax.persistence.*;
 
 @Entity
+@Data
 public class Rating {
 
     @Id
-   // @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     private Long id;
-    private Double ratingNumber;
-    private Long movieId;
+
+    //@Type(type = "text")
+    private Integer rating;
+
+    private VideoType videoType;
+
+    private Long movieOrTVSeriesId;
+
     private Long userId;
 
 

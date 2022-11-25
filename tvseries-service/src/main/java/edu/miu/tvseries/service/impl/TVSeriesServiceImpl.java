@@ -56,10 +56,26 @@ public class TVSeriesServiceImpl implements TVSeriesService {
     public TVSeries editTVSeries(Long id, TVSeriesDTO tvSeriesDTO) {
 
         TVSeries tvSeries=tvSeriesRepository.findById(id).get();
-        tvSeries.setActor(tvSeriesDTO.getActor());
-        tvSeries.setGenre(tvSeriesDTO.getGenre());
-        tvSeries.setDirector(tvSeriesDTO.getDirector());
-        tvSeries.setDuration(tvSeriesDTO.getDuration());
+
+        if( null != tvSeriesDTO.getActor()   ){
+            tvSeries.setActor(tvSeriesDTO.getActor());
+        }
+        if( null != tvSeriesDTO.getGenre() ){
+            tvSeries.setGenre(tvSeriesDTO.getGenre());
+        }
+        if( null != tvSeriesDTO.getDirector()){
+            tvSeries.setDirector(tvSeriesDTO.getDirector());
+        }
+
+        if( null != tvSeriesDTO.getDuration()){
+            tvSeries.setDuration(tvSeriesDTO.getDuration());
+        }
+
+       if( tvSeriesDTO.getRating() <= 5){
+           tvSeries.setRating(tvSeriesDTO.getRating());
+       }
+
+
         tvSeriesRepository.save(tvSeries);
         return tvSeries;
     }

@@ -1,20 +1,20 @@
-#spring:
-#  rabbitmq:
-#    host: localhost
-#    port: 5672
-#    password: guest
-#    username: guest
-#  application:
-#    name: movie-service
-#  datasource:
-#    password: postgres
-#    url: jdbc:postgresql://localhost:5432/db_comment
-#    username: postgres
-#  jpa:
-#    properties:
-#      hibernate:
-#        dialect: org.hibernate.dialect.PostgreSQLDialect
-#    hibernate:
-#      ddl-auto: update
-#server:
-#  port: 8083
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: guest
+    username: guest
+  application:
+    name: comment-service
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5432/db_comment
+    username: postgres
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8083

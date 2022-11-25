@@ -6,8 +6,14 @@ import lombok.Data;
 @Data
 public class RatingDTO {
 
+    private Long id;
+
+    //@Type(type = "text")
     private Integer rating;
-    private Long movieOrTVSeriesId;
+
     private VideoType videoType;
+
+    private Long movieOrTVSeriesId;
+
     private Long userId;
 }
