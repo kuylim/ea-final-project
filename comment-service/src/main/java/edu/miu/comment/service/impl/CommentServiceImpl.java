@@ -36,7 +36,7 @@ public class CommentServiceImpl implements CommentService {
         log.info("-===> dto: {}", dto);
         BeanUtils.copyProperties(dto, comment, "id");
         comment = repository.save(comment);
-        log.info("===> entity: {}", comment);
+        log.info("===> entity: {}", VideoType.MOVIE.equals(dto.getVideoType()));
         if(VideoType.MOVIE.equals(dto.getVideoType())) {
             amqpTemplate.convertAndSend("comment-exchange", "comment-movie-queue", comment);
         }

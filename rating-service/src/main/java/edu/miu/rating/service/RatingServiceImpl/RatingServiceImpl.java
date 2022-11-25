@@ -28,16 +28,24 @@ public class RatingServiceImpl implements RatingService {
     }
 
     @Override
-    public void createNewRating(Rating rating) {
-        ratingRepository.save(rating);
-        /*log.info("-===> dto: {}", dto);
+    public void createNewRating(RatingDTO dto) {
+
+        Rating rating = new Rating();
+        log.info("-===> dto: {}", dto);
         BeanUtils.copyProperties(dto, rating, "id");
         rating = ratingRepository.save(rating);
-        log.info("===> entity: {}", rating);*/
-        if(VideoType.MOVIE.equals(rating.getVideoType())) {
+        log.info("===> entity: {}", VideoType.MOVIE.equals(dto.getVideoType()));
+        log.info("-===> before: {}", rating);
+        if(VideoType.MOVIE.equals(dto.getVideoType())) {
+
             amqpTemplate.convertAndSend("rating-exchange", "rating-movie-queue", rating);
+            log.info("-===> after sending to movie exchange: {}", rating);
+        }else if(VideoType.TV_SERIES.equals(dto.getVideoType())){
+
+            amqpTemplate.convertAndSend("rating-exchange", "rating-tvseries-queue", rating);
+            log.info("-===> after sending to tvseries: {}", rating);
         }
-        amqpTemplate.convertAndSend("rating-exchange", "rating-tvseries-queue", rating);
+
     }
 
     @Override

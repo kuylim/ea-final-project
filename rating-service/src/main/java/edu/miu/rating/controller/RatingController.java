@@ -18,7 +18,9 @@ public class RatingController {
     private final RatingService ratingService;
 
     @PostMapping
-    public void createNewComment(@RequestBody Rating rating) {
+    public void createNewComment(@RequestBody RatingDTO rating) {
+
+
         ratingService.createNewRating(rating);
     }
 
