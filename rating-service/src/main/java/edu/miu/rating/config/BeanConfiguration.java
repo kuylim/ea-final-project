@@ -1,4 +1,4 @@
-package edu.miu.tvseries.config;
+package edu.miu.rating.config;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;

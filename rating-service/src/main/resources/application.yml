@@ -24,30 +24,45 @@
 #server:
 #  port: 8085
 
-
-  spring:
-    rabbitmq:
-      host: localhost
-      port: 5672
-      password: guest
-      username: guest
-    application:
-      name: rating-service
-    datasource:
-      password: postgres
-      url: jdbc:postgresql://localhost:5432/db_rating
-      username: postgres
-    jpa:
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.PostgreSQLDialect
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    password: guest
+    username: guest
+  application:
+    name: rating-service
+  datasource:
+    password: postgres
+    url: jdbc:postgresql://localhost:5003/db_rating
+    username: postgres
+  jpa:
+    properties:
       hibernate:
-        ddl-auto: update
-  eureka:
-    client:
-      service-url:
-        defaultZone: http://localhost:8888/eureka
-  server:
-    port: 8085
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka
+server:
+  port: 8085
+
+management:
+  endpoint:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include:*
+
+keycloak:
+  auth-server-url: http://localhost:5555/auth/
+  realm: movie-rating
+  public-client: false
+  resource: app-service
+  principal-attribute: preferred_username
+  autodetect-bearer-only: true
 
 
