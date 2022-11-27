@@ -3,6 +3,7 @@ package edu.miu.userservice.controller;
 import edu.miu.userservice.dto.LoginDTO;
 import edu.miu.userservice.dto.UserDTO;
 import edu.miu.userservice.service.KeycloakService;
+import edu.miu.userservice.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -21,6 +22,7 @@ import java.util.Map;
 public class AuthenticationController {
 
     private final KeycloakService keycloakService;
+    private final UserService userService;
 
     @PostMapping("/login")
     public Map<String, Object> login(@RequestBody LoginDTO dto) {
@@ -29,6 +31,6 @@ public class AuthenticationController {
 
     @PostMapping("/register")
     public Boolean register(@RequestBody UserDTO dto) {
-        return keycloakService.createUser(dto);
+        return userService.createUser(dto);
     }
 }
