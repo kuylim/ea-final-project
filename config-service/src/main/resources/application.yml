@@ -5,6 +5,6 @@ spring:
     config:
       server:
         git:
-          uri: https://github.com/kuylim/ea-config-repo.git
+          uri: https://github.com/kuylim/ea-final-project-config.git
   application:
     name: config-service
