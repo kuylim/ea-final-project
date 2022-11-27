@@ -2,7 +2,7 @@ spring:
   cloud:
     config:
       profile: dev
-      name: user
+      name: movie
       label: main
       allow-override: false
       uri: http://localhost:7777
