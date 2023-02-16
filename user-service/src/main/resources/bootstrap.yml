@@ -1,0 +1,18 @@
+spring:
+  cloud:
+    vault:
+      host: localhost
+      port: 8200
+      scheme: http
+      token: 188d954a-1331-b830-1d78-7e32b403a6c5
+      kv:
+        enabled: true
+        application-name: user-service
+    config:
+      profile: dev
+      name: user
+      label: main
+      allow-override: false
+      uri: http://localhost:7777
+  profiles:
+    active: dev

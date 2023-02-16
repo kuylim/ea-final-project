@@ -31,3 +31,6 @@ build/
 
 ### VS Code ###
 .vscode/
+vault-docker/vault/data
+vault-docker/vault/logs
+vault-docker/vault/policies

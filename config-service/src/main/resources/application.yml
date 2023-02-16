@@ -1,1 +1,10 @@
-
+server:
+  port: 7777
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/kuylim/ea-final-project-config.git
+  application:
+    name: config-service

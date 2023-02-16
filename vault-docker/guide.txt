@@ -1,0 +1,19 @@
+docker-compose up -d --build
+
+execute into docker
+    -> vault operator init
+
+    -> should display as following
+        Unseal Key 1: iz2F8AM13EYFxlwuY4mTDOfnzKR2MG8V0wclXiz+Lcbz
+        Unseal Key 2: ZBDZdZOqHB6HY0bBHVelNmtwritzrjMbPuOrg9cFTbqJ
+        Unseal Key 3: fkyKW/WqQM4viUa6DudLdAGFqHfxRXSx24jz5xd5IZIR
+        Unseal Key 4: YkOdk/of18hNU0+lYUBcchDFyB1WTmRygl9oYoKChsQ+
+        Unseal Key 5: Rq3OWm+RE11X2Tw2YnvlT9hsceKfii8Z57ee0hc2mPcC
+
+        Initial Root Token: 188d954a-1331-b830-1d78-7e32b403a6c5
+    -> vault operator unseal iz2F8AM13EYFxlwuY4mTDOfnzKR2MG8V0wclXiz+Lcbz
+    -> vault operator unseal ZBDZdZOqHB6HY0bBHVelNmtwritzrjMbPuOrg9cFTbqJ
+    -> vault operator unseal fkyKW/WqQM4viUa6DudLdAGFqHfxRXSx24jz5xd5IZIR
+
+    -> vault login 188d954a-1331-b830-1d78-7e32b403a6c5
+    -> vault kv put secret/foo bar=bar

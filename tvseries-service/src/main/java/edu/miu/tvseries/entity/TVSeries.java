@@ -20,6 +20,6 @@ public class TVSeries extends Video {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(mappedBy = "tvSeries")
+    @OneToMany(mappedBy = "movieOrTVSeriesId")
     private List<Comment> comments;
 }

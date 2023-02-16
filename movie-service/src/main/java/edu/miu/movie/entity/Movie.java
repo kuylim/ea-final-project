@@ -1,6 +1,9 @@
 package edu.miu.movie.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import edu.miu.sharemodule.entity.Video;
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,12 +17,14 @@ import java.util.List;
 @Setter
 @Getter
 @Entity
+@Data
 public class Movie extends Video {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "movie")
+
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "movieOrTVSeriesId")
     private List<Comment> comments;
 }
